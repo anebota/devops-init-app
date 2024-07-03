@@ -54,7 +54,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh "docker run --name init-app --rm -d -p 8088:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
+                    sh "docker run --name init-app --rm -d -p 8089:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
                 }
             }
         }
