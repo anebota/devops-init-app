@@ -44,7 +44,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: "${env.DOCKERHUB_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                        sh "docker push ${env.DOCKERHUB_REPO}:lv1.0.0"
+                        sh "docker push ${env.DOCKERHUB_REPO}:v1.0.0"
                         sh 'docker logout'
                     }
                 }
