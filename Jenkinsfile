@@ -2,10 +2,10 @@ pipeline {
     agent { label 'agent1' }  // Replace 'wsl-agent' with the label of your agent
 
     environment {
-        GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
+        GITHUB_REPO_URL = 'https://github.com/vlonje20/vin-tour-ph.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
         GITHUB_CREDENTIALS_ID = 'jenkins-cred'  // Replace with your Jenkins GitHub credentials ID
-        DOCKERHUB_CREDENTIALS_ID = 'jenkins-dockerHub-cred'  // Replace with your Jenkins Docker Hub credentials ID
+        DOCKERHUB_CREDENTIALS_ID = 'jenkins-docker-cred'  // Replace with your Jenkins Docker Hub credentials ID
         DOCKERHUB_REPO = 'anebota/devops-init-app'  // Replace with your Docker Hub repository
     }
 
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     sh 'docker --version'  // Verify Docker installation
-                    sh "docker build -t ${env.DOCKERHUB_REPO}:v1.0.0 ."  // Build Docker image
+                    sh "docker build -t ${env.DOCKERHUB_REPO}:latest ."  // Build Docker image
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: "${env.DOCKERHUB_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                         sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                        sh "docker push ${env.DOCKERHUB_REPO}:v1.0.0"
+                        sh "docker push ${env.DOCKERHUB_REPO}:latest"
                         sh 'docker logout'
                     }
                 }
@@ -54,11 +54,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-<<<<<<< HEAD
-                    sh "docker run --name devops-init-app --rm -d -p 8099:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
-=======
-                    sh "docker run --name init-app --rm -d -p 8090:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
->>>>>>> de2686e35f6882dda91b35ce944ab12cb5d6bf90
+                    sh "docker run --name init-app --rm -d -p 8000:8080 ${env.DOCKERHUB_REPO}:latest"  // Run Docker container in detached mode
                 }
             }
         }
