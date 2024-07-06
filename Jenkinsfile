@@ -4,7 +4,7 @@ pipeline {
     environment {
         GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
-        GITHUB_CREDENTIALS_ID = 'gitHub-token'  // Replace with your Jenkins GitHub credentials ID
+        GITHUB_CREDENTIALS_ID = 'jenkins-cred'  // Replace with your Jenkins GitHub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'jenkins-dockerHub-cred'  // Replace with your Jenkins Docker Hub credentials ID
         DOCKERHUB_REPO = 'anebota/devops-init-app'  // Replace with your Docker Hub repository
     }
@@ -57,7 +57,7 @@ pipeline {
 <<<<<<< HEAD
                     sh "docker run --name devops-init-app --rm -d -p 8099:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
 =======
-                    sh "docker run --name init-app --rm -d -p 8099:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
+                    sh "docker run --name init-app --rm -d -p 8090:8080 ${env.DOCKERHUB_REPO}:v1.0.0"  // Run Docker container in detached mode
 >>>>>>> de2686e35f6882dda91b35ce944ab12cb5d6bf90
                 }
             }
