@@ -2,7 +2,7 @@ pipeline {
     agent { label 'agent3' }  // Replace 'wsl-agent' with the label of your agent
 
     environment {
-        GITHUB_REPO_URL = 'https://github.com/vlonje20/vin-tour-ph.git'
+        GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
         GITHUB_CREDENTIALS_ID = 'gitHub-Token1'  // Replace with your Jenkins GitHub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'dockerHub-cred2'  // Replace with your Jenkins Docker Hub credentials ID
