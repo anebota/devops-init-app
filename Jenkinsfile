@@ -2,7 +2,7 @@ pipeline {
     agent { label 'agent1' }  // Replace 'wsl-agent' with the label of your agent
 
     environment {
-        GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
+        GITHUB_REPO_URL = 'https://github.com/anebota/royal-project.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
         GITHUB_CREDENTIALS_ID = 'git-hub-token'  // Replace with your Jenkins GitHub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'cicd-dockerhub-cred'  // Replace with your Jenkins Docker Hub credentials ID
@@ -54,7 +54,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh "docker run --name init-app1 --rm -d -p 8088:8080 ${env.DOCKERHUB_REPO}:latest"  // Run Docker container in detached mode
+                    sh "docker run --name royal-project --rm -d -p 8099:8080 ${env.DOCKERHUB_REPO}:latest"  // Run Docker container in detached mode
                 }
             }
         }
