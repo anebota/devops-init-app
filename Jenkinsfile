@@ -4,7 +4,7 @@ pipeline {
     environment {
         GITHUB_REPO_URL = 'https://github.com/vlonje20/vin-tour-ph.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
-        GITHUB_CREDENTIALS_ID = 'jenkins-cred'  // Replace with your Jenkins GitHub credentials ID
+        GITHUB_CREDENTIALS_ID = 'gitHub-Token1'  // Replace with your Jenkins GitHub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'jenkins-docker-cred'  // Replace with your Jenkins Docker Hub credentials ID
         DOCKERHUB_REPO = 'anebota/devops-init-app'  // Replace with your Docker Hub repository
     }
