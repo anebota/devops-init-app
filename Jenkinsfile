@@ -1,8 +1,8 @@
 pipeline {
-    agent { label 'agent2' }  // Replace 'wsl-agent' with the label of your agent
+    agent { label 'agent1' }  // Replace 'wsl-agent' with the label of your agent
 
     environment {
-        GITHUB_REPO_URL = 'https://github.com/anebota/royal-project.git'
+        GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
         GITHUB_CREDENTIALS_ID = 'git-hub-token'  // Replace with your Jenkins GitHub credentials ID
         DOCKERHUB_CREDENTIALS_ID = 'cicd-dockerhub-cred'  // Replace with your Jenkins Docker Hub credentials ID
@@ -26,8 +26,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                //sh '/opt/apache-maven-3.9.6/bin/mvn clean package'  // Simple Maven build
-                sh 'mvn clean package'
+                sh '/opt/apache-maven-3.9.6/bin/mvn clean package'  // Simple Maven build
+                //sh 'mvn clean package'
             }
         }
 
