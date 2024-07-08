@@ -5,7 +5,7 @@ pipeline {
         GITHUB_REPO_URL = 'https://github.com/anebota/devops-init-app.git'
         BRANCH_NAME = 'main'  // Replace with your branch name if it's not 'main'
         GITHUB_CREDENTIALS_ID = 'git-hub-token'  // Replace with your Jenkins GitHub credentials ID
-        DOCKERHUB_CREDENTIALS_ID = 'dockerHub-tokenn'  // Replace with your Jenkins Docker Hub credentials ID
+        DOCKERHUB_CREDENTIALS_ID = 'cicd-dockerhub-cred'  // Replace with your Jenkins Docker Hub credentials ID
         DOCKERHUB_REPO = 'anebota/devops-init-app'  // Replace with your Docker Hub repository
     }
 
